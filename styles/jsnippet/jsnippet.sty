@@ -1,0 +1,26 @@
+%%
+%% This is file `jsnippet.sty',
+%% a collection of standard preambles for Japanese snippets (platex, uplatex).
+%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{jsnippet}
+%
+% ----- Graphic engine -------------------------------------
+\usepackage[dvipsnames,dvipdfmx]{xcolor} % driver-independent color extensions for LaTeX and pdfLaTeX
+\usepackage[dvipdfmx]{graphicx}          % enhanced support for graphics
+% ----- Basic packages -------------------------------------
+\usepackage[utf8]{inputenc}              % accept utf-8 input encoding
+\usepackage[T1]{fontenc}                 % use 8-bit T1 font encoding
+\usepackage{url}                         % verbatim with URL-sensitive line breaks
+\usepackage{booktabs}                    % publication quiality tables in LaTeX
+\usepackage{amsfonts}                    % TeX fonts from the American Mathematical Society
+\usepackage{lmodern}                     % Latin Modern fonts
+\usepackage{nicefrac}                    % typeset in-line fractions in a "nice" way
+\usepackage{amsmath}                     % AMS mathematical facilities for LaTeX
+\interdisplaylinepenalty=2500            % display mode across pages
+\usepackage{amssymb}                     % AMS symbol fonts msam and msbm
+\newcommand\bmmax{0}                     % load minimal set of bold symbols
+\usepackage{bm}                          % access bold symbols in maths mode
+% ----- User packages --------------------------------------
+\usepackage{unicmd}                      % useful commands in math mode
+%

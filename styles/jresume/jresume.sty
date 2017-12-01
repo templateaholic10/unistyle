@@ -1,0 +1,80 @@
+%%
+%% This is file `jresume.sty',
+%% a collection of standard preambles for Japanese resumes (platex, uplatex).
+%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{jresume}
+%
+% ----- Options --------------------------------------------
+\DeclareOption{numbers}{\PassOptionsToPackage{numbers}{natbib}}
+\DeclareOption{noend}{\PassOptionsToPackage{noend}{algpseudocode}}
+\ProcessOptions\relax
+% ----- Graphic engine -------------------------------------
+\usepackage[dvipsnames,dvipdfmx]{xcolor} % driver-independent color extensions for LaTeX and pdfLaTeX
+\usepackage[dvipdfmx]{graphicx}          % enhanced support for graphics
+% ----- Basic packages -------------------------------------
+\usepackage[utf8]{inputenc}              % accept utf-8 input encoding
+\usepackage[T1]{fontenc}                 % use 8-bit T1 font encoding
+\usepackage[dvipdfmx]{hyperref}          % extensive support for hypertext in LaTeX
+\usepackage{pxjahyper}                   % hyperref support for pLaTeX
+\usepackage{url}                         % verbatim with URL-sensitive line breaks
+\usepackage{booktabs}                    % publication quiality tables in LaTeX
+\usepackage{amsfonts}                    % TeX fonts from the American Mathematical Society
+\usepackage{lmodern}                     % Latin Modern fonts
+\usepackage{nicefrac}                    % typeset in-line fractions in a "nice" way
+\usepackage{amsmath}                     % AMS mathematical facilities for LaTeX
+\interdisplaylinepenalty=2500            % display mode across pages
+\usepackage{amssymb}                     % AMS symbol fonts msam and msbm
+\usepackage{natbib}                      % flexible bibliography support
+\newcommand\bmmax{0}                     % load minimal set of bold symbols
+\usepackage{bm}                          % access bold symbols in maths mode
+% ----- User packages --------------------------------------
+\usepackage{unicmd}                      % useful commands in math mode
+% ----- Cross reference ------------------------------------
+\usepackage{cleveref}                    % intelligent cross-referencing
+% \newcommand{\crefrangepostconjunction}{}
+\newcommand{\crefrangeconjunction}{から}
+% \newcommand{\crefrangepostconjunction}{}
+\newcommand{\crefpairconjunction}{および}
+\newcommand{\crefmiddleconjunction}{，}
+\newcommand{\creflastconjunction}{，および}
+% \newcommand{\crefpairgroupconjunction}{および}
+% \newcommand{\crefmiddlegroupconjunction}{，}
+% \newcommand{\creflastgroupconjunction}{，および}
+\crefname{equation}{式}{式}
+\crefname{figure}{図}{図}
+\crefname{table}{表}{表}
+\crefname{algorithm}{アルゴリズム}{アルゴリズム}
+\crefname{definition}{定義}{定義}
+\crefname{theorem}{定理}{定理}
+\crefname{corollary}{系}{系}
+\crefname{lemma}{補題}{補題}
+\crefname{proposition}{命題}{命題}
+\crefname{assumption}{仮定}{仮定}
+\crefname{remark}{観察}{観察}
+\crefname{example}{例}{例}
+\usepackage{autonum}                     % automatic equation references
+% ----- Algorithm ------------------------------------------
+\usepackage{algorithm}                   % float wrapper for algorithms
+\usepackage{algpseudocode}               % pseudocode environments for use with the `algorithmicx' style
+\algdef{SE}[DOWHILE]{Do}{doWhile}{\algorithmicdo}[1]{\algorithmicwhile\ #1}
+% ----- Subfigure ------------------------------------------
+\usepackage{subcaption}                  % support for sub-captions
+\captionsetup[subfigure]{subrefformat=simple,labelformat=simple}
+\renewcommand\thesubfigure{(\alph{subfigure})}
+% ----- Theorem --------------------------------------------
+\usepackage{amsthm}                      % typesetting theorems (AMS style)
+\renewcommand\proofname{\bf 証明}
+\def\qed{\hfill ■}
+\theoremstyle{definition}
+\newtheorem{definition}{定義}
+\newtheorem{theorem}{定理}
+\newtheorem{corollary}{系}
+\newtheorem{lemma}{補題}
+\newtheorem{proposition}{命題}
+\newtheorem{assumption}{仮定}
+\newtheorem{remark}{観察}
+\newtheorem{example}{例}
+% ----- Local commands -------------------------------------
+\let\newword\textbf
+%

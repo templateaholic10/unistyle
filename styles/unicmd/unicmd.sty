@@ -1,0 +1,218 @@
+%%
+%% This is file `unicmd.sty',
+%% which provides useful commands in math mode.
+%% I really learned from `gfncmd.sty'.
+%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{unicmd}
+%
+% ===== Utilities ==========================================
+\DeclareRobustCommand{\decosmash}[2]{\vphantom{#2}\smash{#1{#2}}}
+%
+% ===== Letters ============================================
+\DeclareRobustCommand{\bigast}{\scalebox{1.5}{\raisebox{-0.2ex}{$\ast$}}}
+\def\E{\mathrm{e}}
+\def\PI{\mathrm{\pi}}
+\def\I{\mathrm{i}}
+% ------ Greek alphabet ------------------------------------
+\def\Alpha{A}
+\def\Beta{B}
+\let\Gamma=\varGamma
+\let\Delta=\varDelta
+\def\Epsilon{E}
+\def\Zeta{Z}
+\def\Eta{H}
+\let\Theta=\varTheta
+\def\Iota{I}
+\def\Kappa{K}
+\let\Lambda=\varLambda
+\def\Mu{M}
+\def\Nu{N}
+\let\Xi=\varXi
+\def\Omicron{O}
+\let\Pi=\varPi
+\def\Rho{P}
+\let\Sigma=\varSigma
+\def\Tau{T}
+\let\Upsilon=\varUpsilon
+\let\Phi=\varPhi
+\def\Chi{X}
+\let\Psi=\varPsi
+\let\Omega=\varOmega
+\let\epsilon=\varepsilon
+\def\omicron{o}
+%
+% ===== Math mode texts ====================================
+\def\CONST{\mathrm{const.}}
+\def\OTHERWISE{\mathrm{otherwise}}
+\def\IF{\mathrel{\mathrm{if}}}
+\def\WHERE{\mathrel{\mathrm{where}}}
+\def\FOR{\mathrel{\mathrm{for}}}
+\def\AND{\mathrel{\mathrm{and}}}
+\def\OR{\mathrel{\mathrm{or}}}
+\def\AS{\mathrel{\mathrm{as}}}
+%
+% ===== Parenthesis, Brackets and Braces ===================
+% ------ raw parenthesis -----------------------------------
+\def\rawparen#1{(#1)}
+\def\rawsqbracket#1{[#1]}
+\def\rawcurlybrace#1{\{#1\}}
+\def\rawangbracket#1{\langle#1\rangle}
+\def\rawabsprn#1{|#1|}
+\def\rawdistprn#1{\|#1\|}
+\def\rawfloor#1{\lfloor#1\rfloor}
+\def\rawceil#1{\lceil#1\rceil}
+\let\rawseqprn\rawparen
+\let\rawsetprn\rawcurlybrace
+\def\rawsetprnsep#1#2{\rawsetprn{#1\mid#2}}
+\def\rawsfrac#1#2{#1/#2}
+% ------ parenthesis ---------------------------------------
+\def\paren#1{\left\rawparen{#1\right}}
+\def\sqbracket#1{\left\rawsqbracket{#1\right}}
+\def\curlybrace#1{\left\rawcurlybrace{#1\right}}
+\def\angbracket#1{\left\rawangbracket{#1\right}}
+\def\absprn#1{\left\rawabsprn{#1\right}}
+\def\distprn#1{\left\rawdistprn{#1\right}}
+\def\floor#1{\left\rawfloor{#1\right}}
+\def\ceil#1{\left\rawceil{#1\right}}
+\let\seqprn\paren
+\let\setprn\curlybrace
+\def\relmiddle#1{\mathrel{}\middle#1\mathrel{}}
+\def\relmid{\relmiddle|}
+\def\setprnsep#1#2{\setprn{#1\relmid#2}}
+\def\sfrac#1#2{\left.#1\middle/#2\right.}
+% ------ applicators ---------------------------------------
+\def\app#1#2{#1\!\paren{#2}}
+\def\sqapp#1#2{#1\!\sqbracket{#2}}
+\def\curlyapp#1#2{#1\!\curlybrace{#2}}
+\def\angapp#1#2{#1\!\angapp{#2}}
+% ------ separate applicators ------------------------------
+\def\barapp#1#2#3{\app{#1}{#2\relmid#3}}
+\def\sqbarapp#1#2#3{\sqapp{#1}{#2\relmid#3}}
+\def\colapp#1#2#3{\app{#1}{#2\mathrel{;}#3}}
+% ------ intervals -----------------------------------------
+\def\openintvl#1#2{\paren{#1,#2}}
+\def\closedintvl#1#2{\sqbracket{#1,#2}}
+\def\openclosedintvl#1#2{\left(#1,#2\right]}
+\def\closedopenintvl#1#2{\left[#1,#2\right)}
+%
+% ===== Basic operators ====================================
+% ------ unary operators -----------------------------------
+\def\argmin{\mathop{\mathrm{argmin}}}
+\def\argmax{\mathop{\mathrm{argmax}}}
+\def\sgn{\mathop{\mathrm{sgn}}}
+\def\ind{\mathord{\decosmash\bm{1}}}
+% ------ relational operators ------------------------------
+\def\defeq{\mathrel{:\hspace{-0.0625em}=}}
+\def\eqdef{\mathrel{=\hspace{-0.0625em}:}}
+\def\defiff{\mathrel{\overset{\mathrm{def}}{\iff}}}
+\def\st{\mathrel{\text{s.t.}}}
+\def\ncond{\mathrel{\Longrightarrow}}
+\def\scond{\mathrel{\Longleftarrow}}
+\let\nscond=\iff
+\let\then=\ncond
+\def\approach{\mathrel{\rightarrow}}
+%
+% ===== Indexers ===========================================
+\DeclareRobustCommand{\idparen@d}[1]{\raisebox{1.4pt}{$\scriptstyle($}#1\raisebox{1.4pt}{$\scriptstyle)$}}
+\DeclareRobustCommand{\idparen@t}[1]{\raisebox{1.4pt}{$\scriptstyle($}#1\raisebox{1.4pt}{$\scriptstyle)$}}
+\DeclareRobustCommand{\idparen@s}[1]{\raisebox{0.85pt}{$\scriptscriptstyle($}#1\raisebox{0.85pt}{$\scriptscriptstyle)$}}
+\DeclareRobustCommand{\idparen@ss}[1]{\raisebox{0.6pt}{\scalebox{.7}{$\scriptscriptstyle($}}#1\raisebox{0.6pt}{\scalebox{.7}{$\scriptscriptstyle)$}}}
+\def\idparen#1{\mathchoice{\idparen@d{#1}}{\idparen@t{#1}}{\idparen@s{#1}}{\idparen@ss{#1}}}
+\def\uid#1#2{#1^{\idparen{#2}}}
+\DeclareRobustCommand{\vuid}[2]{\vphantom{#1}\smash{\uid{#1}{#2}}}
+%
+% ===== Sets ===============================================
+% ------ famous sets ---------------------------------------
+\def\setZ{\setcapital{Z}}
+\def\setN{\setcapital{N}}
+\def\setQ{\setcapital{Q}}
+\def\setR{\setcapital{R}}
+\def\setC{\setcapital{C}}
+\def\setH{\setcapital{H}}
+\def\setP{\setcapital{P}}
+\def\setNpos{\setcapital{N}^+}
+\def\setRpos{\setcapital{R}^+}
+\def\setRnonneg{\setcapital{R}_{{}\geq 0}}
+\def\usebfsetcapital{\let\setcapital=\mathbf}
+\def\usebmsetcapital{\let\setcapital=\bm}
+\def\usebbsetcapital{\let\setcapital=\mathbb}
+\usebfsetcapital
+% ------ set operations ------------------------------------
+\def\card@num#1{\#{#1}}
+\def\card@prn#1{\absprn{#1}}
+\def\usenumcard{\let\card\card@num}
+\def\useprncard{\let\card\card@prn}
+\useprncard
+\def\powerset#1{2^{#1}}
+%
+% ======== Mathematical analysis ===========================
+\def\funcdoms#1#2#3{#1:\:#2\to #3}
+\let\placeholder=\cdot
+% ------ basic operations ----------------------------------
+\let\conj=\bar
+\let\wideconj=\overline
+% ------ differentiation -----------------------------------
+\def\dif#1#2{\frac{\ordd#1}{\ordd#2}}
+\def\ddif#1#2{\frac{\ordd^{2}#1}{\ordd#2^{2}}}
+\def\ndif#1#2#3{\frac{\ordd^{#1}#2}{\ordd#3^{#1}}}
+\def\pdif#1#2{\frac{\partial#1}{\partial#2}}
+\def\pddif#1#2{{\pndif{2}{#1}{#2}}}
+\def\pndif#1#2#3{\frac{\partial^{#1}#2}{\partial#3^{#1}}}
+\def\primedif#1{#1^\prime}
+% ------ 'd' of differentiation ----------------------------
+\def\ordd{\mathord{\,\mathrm{d}}}
+%
+% ======== Linear algebra ==================================
+\def\vec#1{\decosmash\bm{#1}}
+\def\setVector#1#2{#2^{#1}}
+\def\mat#1{\decosmash\bm{#1}}
+\def\setMatrix#1#2#3{#3^{#1\times #2}}
+% ------ nill index ----------------------------------------
+\DeclareRobustCommand{\nid}{\raisebox{-0.4ex}{\scalebox{1.5}{$\cdot$}}}
+% ------ constants -----------------------------------------
+\newcommand{\veczero}[1][]{\vec{0}_{#1}}
+\newcommand{\vecone}[1][]{\vec{1}_{#1}}
+\newcommand{\matzero}[1][]{\mat{O}_{#1}}
+\newcommand{\matid}[1][]{\mat{I}_{#1}}
+% ------ unary operators -----------------------------------
+\def\Kernel{\mathop{\mathrm{Ker}}}
+\def\Image{\mathop{\mathrm{Im}}}
+\def\rank{\mathop{\mathrm{rank}}}
+\def\size{\mathop{\mathrm{size}}}
+\def\tr{\mathop{\mathrm{tr}}}
+\def\diag{\mathop{\mathrm{diag}}}
+% ------ binary operators ----------------------------------
+\let\kprod=\otimes
+\let\ksum=\oplus
+\let\hprod=\odot
+% ------ basic operations ----------------------------------
+\def\trsps#1{#1^\top\!}
+\def\adjoint#1{#1^*\!}
+\def\inv#1{{#1}^{-1}}
+\def\ginv#1{{#1}^{\dag}}
+\def\pinv#1{{#1}^+}
+\newcommand{\norm}[2][]{\distprn{#2}_{#1}}
+\def\iprod#1#2{\angbracket{#1,#2}}
+% ------ matrix expressions --------------------------------
+\DeclareRobustCommand{\topright}[1]{\smash{\kern-0.5em\raise-1ex\hbox{\text{\parbox{2em}{\Huge$#1$}}}\kern0.5em\relax}}
+\DeclareRobustCommand{\bottomleft}[1]{\smash{\kern0.5em\raise1ex\hbox{\text{\parbox{2em}{\Huge$#1$}}}\kern-0.5em\relax}}
+\DeclareRobustCommand{\halfup}[1]{\smash{\kern0.5em\raise1ex\hbox{\text{\parbox{2em}{\Huge$#1$}}}\kern-0.5em\relax}}
+\DeclareRobustCommand{\bottom}[1]{\smash{\kern0.5em\raise-1ex\hbox{\text{\parbox{2em}{\Huge$#1$}}}\kern-0.5em\relax}}
+\DeclareRobustCommand{\expandshift}[3]{\smash{\kern#2em\raise-#3ex\hbox{\text{\parbox{2em}{\Huge$#1$}}}\kern-#2em\relax}}
+\def\expand#1{\expandshift{#1}{0}{0}}
+%
+% ===== Statistics =========================================
+\newcommand{\iid}{\mathrm{i.i.d.}}
+\newcommand{\distributed}{\mathrel{\sim}}
+% ------ basic operations ----------------------------------
+\def\EV@op{\mathord{\mathbf{E}}}
+\newcommand{\EV}[2][]{\sqapp{\EV@op_{#1}}{#2}}
+\newcommand{\condEV}[3][]{\sqapp{\EV@op_{#1}}{#2}{#3}}
+\def\Var@op{\mathord{\mathrm{Var}}}
+\newcommand{\Var}[2][]{\app{\Var@op_{#1}}{#2}}
+\newcommand{\condVar}[3][]{\app{\Var@op_{#1}}{#2}{#3}}
+\def\Cov@op{\mathord{\mathrm{Cov}}}
+\newcommand{\Cov}[2][]{\app{\Cov@op_{#1}}{#2}}
+\newcommand{\condCov}[3][]{\app{\Cov@op_{#1}}{#2}{#3}}
+%

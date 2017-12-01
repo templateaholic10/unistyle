@@ -1,0 +1,55 @@
+%%
+%% This is file `resume.sty',
+%% a collection of standard preambles for English resumes (pdflatex).
+%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{resume}
+%
+% ----- Options --------------------------------------------
+\DeclareOption{numbers}{\PassOptionsToPackage{numbers}{natbib}}
+\DeclareOption{noend}{\PassOptionsToPackage{noend}{algpseudocode}}
+\ProcessOptions\relax
+% ----- Graphic engine -------------------------------------
+\usepackage{xcolor}           % driver-independent color extensions for LaTeX and pdfLaTeX
+\usepackage{graphicx}         % enhanced support for graphics
+% ----- Basic packages -------------------------------------
+\usepackage[utf8]{inputenc}   % accept utf-8 input encoding
+\usepackage[T1]{fontenc}      % use 8-bit T1 font encoding
+\usepackage{hyperref}         % extensive support for hypertext in LaTeX
+\usepackage{url}              % verbatim with URL-sensitive line breaks
+\usepackage{booktabs}         % publication quiality tables in LaTeX
+\usepackage{amsfonts}         % TeX fonts from the American Mathematical Society
+\usepackage{microtype}        % subliminal refinements towards typographical perfection
+\usepackage{nicefrac}         % typeset in-line fractions in a "nice" way
+\usepackage{amsmath}          % AMS mathematical facilities for LaTeX
+\interdisplaylinepenalty=2500 % display mode across pages
+\usepackage{amssymb}          % AMS symbol fonts msam and msbm
+\usepackage{natbib}           % flexible bibliography support
+\newcommand\bmmax{0}          % load minimal set of bold symbols
+\usepackage{bm}               % access bold symbols in maths mode
+% ----- User packages --------------------------------------
+\usepackage{unicmd}           % useful commands in math mode
+% ----- Cross reference ------------------------------------
+\usepackage{cleveref}         % intelligent cross-referencing
+\usepackage{autonum}          % automatic equation references
+% ----- Algorithm ------------------------------------------
+\usepackage{algorithm}        % float wrapper for algorithms
+\usepackage{algpseudocode}    % pseudocode environments for use with the `algorithmicx' style
+\algdef{SE}[DOWHILE]{Do}{doWhile}{\algorithmicdo}[1]{\algorithmicwhile\ #1}
+% ----- Subfigure ------------------------------------------
+\usepackage{subcaption}       % support for sub-captions
+\captionsetup[subfigure]{subrefformat=simple,labelformat=simple}
+\renewcommand\thesubfigure{(\alph{subfigure})}
+% ----- Theorem --------------------------------------------
+\usepackage{amsthm}           % typesetting theorems (AMS style)
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+% ----- Local commands -------------------------------------
+\let\newword\textit
+%
