@@ -44,6 +44,11 @@
 \crefname{equation}{式}{式}
 \crefname{figure}{図}{図}
 \crefname{table}{表}{表}
+\crefformat{part}{第#2#1#3部}
+\crefformat{chapter}{第#2#1#3章}
+\crefformat{section}{第#2#1#3節}
+\crefformat{subsection}{第#2#1#3小節}
+% \crefformat{subsubsection}{第#2#1#3小小節}
 \crefname{algorithm}{アルゴリズム}{アルゴリズム}
 \crefname{definition}{定義}{定義}
 \crefname{theorem}{定理}{定理}
@@ -53,6 +58,7 @@
 \crefname{assumption}{仮定}{仮定}
 \crefname{remark}{観察}{観察}
 \crefname{example}{例}{例}
+\crefname{property}{性質}{性質}
 \usepackage{autonum}                     % automatic equation references
 % ----- Algorithm ------------------------------------------
 \usepackage{algorithm}                   % float wrapper for algorithms
@@ -75,6 +81,7 @@
 \newtheorem{assumption}{仮定}
 \newtheorem{remark}{観察}
 \newtheorem{example}{例}
+\newtheorem{property}{性質}
 % ----- Local commands -------------------------------------
 \let\newword\textbf
 %
